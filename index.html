@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Praise Always</title>
+<meta name="description" content="Praise Always takes its name and its mark from Psalm 63:3–4: because your steadfast love is better than life, my lips will praise you.">
+<meta name="theme-color" content="#EFEBE3">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<!-- Social sharing preview. Once your domain is live, change og:image and og:url to full https:// addresses (see README). -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Praise Always">
+<meta property="og:description" content="Because your steadfast love is better than life, my lips will praise you. Psalm 63:3">
+<meta property="og:image" content="assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EFEBE3; --fg:#1A1814; --muted:#5A554B; --faint:#BEB7AA; --gold:#A87B2A;
+  --band-bg:#1A1814; --band-fg:#EFEBE3; --band-muted:#BEB7AA;
+  --serif:"Cormorant Garamond", Garamond, "Times New Roman", serif;
+  --sans:Jost, Futura, "Century Gothic", "Trebuchet MS", sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1A1814; --fg:#EFEBE3; --muted:#BEB7AA; --faint:#5A554B;
+    --band-bg:#EFEBE3; --band-fg:#1A1814; --band-muted:#5A554B;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1A1814; --fg:#EFEBE3; --muted:#BEB7AA; --faint:#5A554B;
+  --band-bg:#EFEBE3; --band-fg:#1A1814; --band-muted:#5A554B;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--serif);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* header */
+.top{position:absolute;inset:0 0 auto 0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:28px clamp(20px,4vw,56px)}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.brand svg{width:13px;height:21px;display:block}
+.brand span{font-family:var(--serif);font-weight:600;font-size:15px;letter-spacing:.26em}
+.skip{font-family:var(--sans);font-size:14px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--faint);padding-bottom:2px}
+.skip:hover{color:var(--fg);border-color:var(--fg)}
+
+/* story */
+.story{position:relative;height:820vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.frame{position:absolute;left:50%;top:50%;transform-origin:50% 50%}
+.frame > *{position:absolute}
+.mark-svg{left:0;top:0}
+.mark-svg polygon{fill:var(--fg)}
+.word{font-family:var(--serif);font-weight:600;letter-spacing:.22em;padding-left:.22em;white-space:nowrap;transform:translate(-50%,-50%);line-height:1;opacity:0}
+.verse{font-family:var(--serif);font-weight:500;line-height:1.5;text-align:center;text-wrap:balance;transform:translateX(-50%)}
+.verse .ref{display:block;font-family:var(--sans);font-weight:500;font-size:.3em;letter-spacing:.3em;color:var(--muted);margin-top:1.4em}
+.lit{white-space:nowrap;display:inline-block}
+.wm{font-family:var(--serif);font-weight:600;letter-spacing:.26em;padding-left:.26em;white-space:nowrap;transform:translate(-50%,-50%);line-height:1;opacity:0}
+.hint{left:50%;transform:translateX(-50%);font-family:var(--sans);color:var(--muted);white-space:nowrap}
+
+/* about */
+.about{padding:clamp(96px,14vw,168px) clamp(24px,6vw,64px) clamp(96px,12vw,144px);display:grid;justify-items:center}
+.about .col{max-width:31em;font-size:clamp(19px,1.5vw,22px);line-height:1.62}
+.about h2{font-weight:600;font-size:clamp(34px,4.2vw,54px);line-height:1.08;margin:0 0 .9em;letter-spacing:-.005em}
+.about p{margin:0 0 1.1em}
+.about .sign{display:flex;align-items:flex-end;gap:clamp(28px,5vw,64px);margin:2.4em 0 2.6em}
+.about .sign figure{margin:0;display:grid;justify-items:center;gap:14px}
+.about .sign figcaption{font-family:var(--sans);font-size:14px;color:var(--muted)}
+.about .sign svg{display:block}
+
+/* band */
+.band{background:var(--band-bg);color:var(--band-fg);padding:clamp(96px,12vw,152px) 24px;display:grid;justify-items:center;text-align:center}
+.band svg polygon{fill:var(--band-fg)}
+.band .lock{font-weight:600;font-size:clamp(22px,2.6vw,32px);letter-spacing:.26em;padding-left:.26em;margin:44px 0 0}
+.band .tag{font-size:clamp(20px,1.8vw,24px);line-height:1.6;margin:56px 0 0;color:var(--band-fg)}
+.band .tag em{display:block;margin-top:.5em}
+footer{padding:40px clamp(20px,4vw,56px) 48px;font-family:var(--sans);font-size:13px;line-height:1.6;color:var(--muted);display:flex;flex-wrap:wrap;gap:12px 40px;justify-content:space-between}
+footer p{margin:0;max-width:62ch}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="#top" aria-label="Praise Always, back to top">
+    <svg viewBox="-62 0 124 200" aria-hidden="true"><polygon points="0,0 61.8,200 31.8,200 -9,67.96 -49.8,200 -61.8,200" fill="currentColor"/></svg>
+    <span>PRAISE ALWAYS</span>
+  </a>
+  <a class="skip" href="#about">Skip the story</a>
+</header>
+
+<main id="top">
+  <section class="story" aria-label="How the mark was made">
+    <p class="sr">Psalm 63:3–4 reads: “Because your steadfast love is better than life, my lips will praise you. So I will bless you as long as I live; in your name I will lift up my hands.” The words love and better than life become a greater-than sign between Love and Life. The sign turns upward, like hands lifted, then becomes the Praise Always mark. Finally the words praise and as long as I live become the name Praise Always.</p>
+    <div class="stage" aria-hidden="true">
+      <div class="frame" id="frame">
+        <svg class="mark-svg" id="svg"><polygon id="poly" points=""/></svg>
+        <div class="word" id="love">LOVE</div>
+        <div class="word" id="life">LIFE</div>
+        <div class="word" id="lifted">LIFTED</div>
+        <div class="word" id="always">ALWAYS</div>
+        <div class="verse" id="v1"><span class="u">“Because your steadfast</span> <span class="h">love</span> <span class="u">is</span> <span class="h">better than life,</span> <span class="u">my lips will praise you. So I will bless you as long as I live; in your name I will lift up my hands.”</span><span class="ref u">PSALM 63:3–4 (ESV)</span></div>
+        <div class="verse" id="v2"><span class="u">“Because your steadfast love is better than life, my lips will</span> <span class="lit" id="lit1">praise</span> <span class="u">you. So I will bless you</span> <span class="lit" id="lit2">as long as I live</span><span class="u">; in your name I will lift up my hands.”</span></div>
+        <div class="wm" id="wm"><span id="wP">PRAISE</span> <span id="wA">ALWAYS</span></div>
+        <div class="hint" id="hint">Scroll to see how the mark was made</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="col">
+      <h2>Because love is better than life.</h2>
+      <p>Praise Always takes its name and its mark from Psalm 63. David wrote it in the wilderness of Judah, with nothing around him but dry ground, and still concluded that God’s steadfast love is better than life itself.</p>
+      <div class="sign" aria-hidden="true">
+        <figure>
+          <svg width="46" height="64" viewBox="0 0 46 64"><polyline points="6,4 40,32 6,60" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>
+          <figcaption>Better than</figcaption>
+        </figure>
+        <figure>
+          <svg width="64" height="64" viewBox="0 0 64 64"><polyline points="4,58 32,8 60,58" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>
+          <figcaption>Lifted</figcaption>
+        </figure>
+        <figure>
+          <svg width="40" height="64" viewBox="-62 0 124 200"><polygon points="0,0 61.8,200 31.8,200 -9,67.96 -49.8,200 -61.8,200" fill="currentColor"/></svg>
+          <figcaption>Always</figcaption>
+        </figure>
+      </div>
+      <p>The mark is that sentence, drawn. The greater-than sign says love is greater than life. Turned upward, it becomes hands lifted in praise, and in written music it becomes the marcato, the sign for a note sung with full force.</p>
+      <p>The name is the response the verse gives. Because his love is better than life, we praise him, as long as we live.</p>
+    </div>
+  </section>
+
+  <section class="band" aria-label="Praise Always">
+    <svg width="70" height="113" viewBox="-62 0 124 200" aria-hidden="true"><polygon points="0,0 61.8,200 31.8,200 -9,67.96 -49.8,200 -61.8,200"/></svg>
+    <p class="lock">PRAISE ALWAYS</p>
+    <p class="tag">Love &gt; life.<br>Turn it upward and it becomes the mark<br>for singing at full voice.<em>Praise, always.</em></p>
+  </section>
+</main>
+
+<footer>
+  <p>Scripture quotations are from the ESV® Bible (The Holy Bible, English Standard Version®), © 2001 by Crossway, a publishing ministry of Good News Publishers. Used by permission. All rights reserved.</p>
+  <p>© 2026 Praise Always</p>
+</footer>
+
+<script>
+(function(){
+  const UP=[[0,40],[100,200],[84,200],[0,65.6],[-84,200],[-100,200]];
+  const MARK=[[0,0],[61.8,200],[31.8,200],[-9,67.96],[-49.8,200],[-61.8,200]];
+  const PIV=[0,120];
+  const T0=6.4, END=T0+19.2;
+
+  const CFG={
+    land:{W:1920,H:1080,piv:[960,500],s:2.1,pivF:[960,493],sF:1.3,love:[550,500],life:[1370,500],word:78,cap:770,
+      v1:{w:1320,f:50},v2:{top:710,w:1240,f:40},wm:{y:701,f:57},hint:{y:1000,f:22}},
+    port:{W:1080,H:1920,piv:[540,880],s:2.4,pivF:[540,720],sF:1.6,love:[190,880],life:[890,880],word:66,cap:1290,
+      v1:{w:940,f:60},v2:{top:1080,w:940,f:48},wm:{y:960,f:70},hint:{y:1780,f:34}}
+  };
+
+  const $=id=>document.getElementById(id);
+  const frame=$('frame'), svg=$('svg'), poly=$('poly');
+  const love=$('love'), life=$('life'), lifted=$('lifted'), always=$('always');
+  const v1=$('v1'), v2=$('v2'), wm=$('wm'), hint=$('hint');
+  const v1u=[...v1.querySelectorAll('.u')];
+  const v2u=[...v2.querySelectorAll('.u')];
+  const lits=[$('lit1'),$('lit2')], targets=[$('wP'),$('wA')];
+  const story=document.querySelector('.story');
+  let cfg=CFG.land, k=1, deltas=[[0,0],[0,0]];
+
+  const ease=t=>{t=Math.max(0,Math.min(1,t));return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2};
+  const prog=(t,a,b)=>ease((t-a)/(b-a));
+  const lerp=(a,b,x)=>a+(b-a)*x;
+
+  function layout(){
+    const vw=innerWidth, vh=innerHeight;
+    cfg = (vw/vh<0.9)?CFG.port:CFG.land;
+    k=Math.min(vw/cfg.W, vh/cfg.H);
+    frame.style.width=cfg.W+'px'; frame.style.height=cfg.H+'px';
+    frame.style.transform=`translate(-50%,-50%) scale(${k})`;
+    svg.setAttribute('width',cfg.W); svg.setAttribute('height',cfg.H);
+    svg.setAttribute('viewBox',`0 0 ${cfg.W} ${cfg.H}`);
+    for(const [el,p] of [[love,cfg.love],[life,cfg.life]]){el.style.left=p[0]+'px';el.style.top=p[1]+'px';el.style.fontSize=cfg.word+'px'}
+    for(const el of [lifted,always]){el.style.left=cfg.W/2+'px';el.style.top=cfg.cap+'px';el.style.fontSize=cfg.word+'px'}
+    Object.assign(v1.style,{left:cfg.W/2+'px',top:'50%',width:cfg.v1.w+'px',fontSize:cfg.v1.f+'px',transform:'translate(-50%,-50%)'});
+    Object.assign(v2.style,{left:cfg.W/2+'px',top:cfg.v2.top+'px',width:cfg.v2.w+'px',fontSize:cfg.v2.f+'px'});
+    Object.assign(wm.style,{left:cfg.W/2+'px',top:cfg.wm.y+'px',fontSize:cfg.wm.f+'px'});
+    Object.assign(hint.style,{top:cfg.hint.y+'px',fontSize:cfg.hint.f+'px'});
+    // measure the lit phrases' travel to the wordmark
+    lits.forEach(l=>l.style.transform='none');
+    deltas=lits.map((l,i)=>{
+      const a=l.getBoundingClientRect(), b=targets[i].getBoundingClientRect();
+      return [((b.left+b.width/2)-(a.left+a.width/2))/k, ((b.top+b.height/2)-(a.top+a.height/2))/k];
+    });
+    render();
+  }
+
+  function render(){
+    const r=story.getBoundingClientRect();
+    const span=story.offsetHeight-innerHeight;
+    const p=Math.max(0,Math.min(1,-r.top/span));
+    const T=p*END;
+
+    // opening verse: readable from the first frame
+    const dim=prog(T,2.4,3.4), vout=1-prog(T,4.8,5.8);
+    v1.style.opacity=vout;
+    v1u.forEach(u=>u.style.opacity=1-.86*dim);
+    hint.style.opacity=1-prog(T,0,0.6);
+
+    const t=T-T0;
+    const fadeIn=prog(t,0,.9), rot=lerp(90,0,prog(t,3.0,4.5)), morph=prog(t,6.4,8.1), fin=prog(t,10.0,11.3);
+    const s=lerp(cfg.s,cfg.sF,fin), px=lerp(cfg.piv[0],cfg.pivF[0],fin), py=lerp(cfg.piv[1],cfg.pivF[1],fin);
+    const th=rot*Math.PI/180, c=Math.cos(th), sn=Math.sin(th);
+    poly.setAttribute('points',UP.map((u,i)=>{
+      const m=MARK[i];
+      const x=lerp(u[0],m[0],morph)-PIV[0], y=lerp(u[1],m[1],morph)-PIV[1];
+      return ((px+(x*c-y*sn)*s).toFixed(2))+','+((py+(x*sn+y*c)*s).toFixed(2));
+    }).join(' '));
+    poly.style.opacity=fadeIn;
+
+    const a1=fadeIn*(1-prog(t,2.6,3.2));
+    love.style.opacity=life.style.opacity=a1;
+    lifted.style.opacity=prog(t,4.3,4.9)*(1-prog(t,6.1,6.6));
+    always.style.opacity=prog(t,7.9,8.5)*(1-prog(t,9.7,10.2));
+
+    // closing verse: praise + as long as I live become the name
+    const ain=prog(t,11.0,12.1), d2=prog(t,13.4,14.3), gone=prog(t,15.3,16.1), move=prog(t,15.9,17.6);
+    v2.style.opacity=ain;
+    v2u.forEach(u=>u.style.opacity=(1-.86*d2)*(1-gone));
+    const litA=1-prog(t,16.4,17.5);
+    lits.forEach((l,i)=>{l.style.opacity=litA;l.style.transform=`translate(${deltas[i][0]*move}px,${deltas[i][1]*move}px)`});
+    wm.style.opacity=prog(t,16.7,17.9);
+  }
+
+  let ticking=false;
+  addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(()=>{ticking=false;render()})}},{passive:true});
+  addEventListener('resize',layout);
+  layout();
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(layout);
+})();
+</script>
+</body>
+</html>
